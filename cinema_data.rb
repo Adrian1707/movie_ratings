@@ -98,10 +98,14 @@ def store_rating_and_film_in_hash
   @film_and_ratings.uniq!
 end
 
-set_date("20160207")
+def rank_by_rating
+  @film_and_ratings.sort_by{ |hash| hash['count'] }.reverse
+end
+
+set_date("20160208")
 parse_cinema_data("http://www2.cineworld.co.uk/api/quickbook/cinemas?key=n7Dhu:mz&date=#{@date}")
 store_names_in_hash
-fetch_cinema("Luton")
+fetch_cinema("Milton Keynes")
 fetch_cinema_keys
 parse_film_data("http://www2.cineworld.co.uk/api/quickbook/films?key=n7Dhu:mz&cinema=#{@key}&date=#{@date}")
 store_films_in_hash
@@ -109,11 +113,6 @@ collect_film_names
 format_film_names
 get_film_ratings
 store_rating_and_film_in_hash
-print @film_and_ratings
-# print get_film_ratings
-
-# parse_film_ratings("http://www.omdbapi.com/?t=The+Revenant&y=&plot=short&r=json")
-# print fetch_film_rating(@film_details)
 
 
 current_date = Time.now.strftime("%Y%d%m")
