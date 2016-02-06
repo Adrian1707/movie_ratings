@@ -14,4 +14,5 @@ collect_film_names
 format_film_names
 get_film_ratings
 store_rating_and_film_in_hash
-print @film_and_ratings
+remove_blanks
+present_in_lines

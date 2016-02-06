@@ -102,17 +102,35 @@ def rank_by_rating
   @film_and_ratings.sort_by{ |hash| hash['count'] }.reverse
 end
 
-set_date("20160208")
-parse_cinema_data("http://www2.cineworld.co.uk/api/quickbook/cinemas?key=n7Dhu:mz&date=#{@date}")
-store_names_in_hash
-fetch_cinema("Milton Keynes")
-fetch_cinema_keys
-parse_film_data("http://www2.cineworld.co.uk/api/quickbook/films?key=n7Dhu:mz&cinema=#{@key}&date=#{@date}")
-store_films_in_hash
-collect_film_names
-format_film_names
-get_film_ratings
-store_rating_and_film_in_hash
+def remove_blanks
+  @film_and_ratings.each do |film|
+    if film.values.any?{|v| v.nil? || v.length == 0} || film.keys.any?{|v| v.nil? || v.length == 0}
+      @film_and_ratings.delete(film)
+    end
+  end
+end
+
+def present_in_lines
+  @film_and_ratings.each do |film|
+    puts "#{film.values.join("")}: Rating: #{film.keys.join('').to_f}\n"
+  end
+end
+
+# set_date("20160208")
+# parse_cinema_data("http://www2.cineworld.co.uk/api/quickbook/cinemas?key=n7Dhu:mz&date=#{@date}")
+# store_names_in_hash
+# fetch_cinema("Milton Keynes")
+# fetch_cinema_keys
+# parse_film_data("http://www2.cineworld.co.uk/api/quickbook/films?key=n7Dhu:mz&cinema=#{@key}&date=#{@date}")
+# store_films_in_hash
+# collect_film_names
+# format_film_names
+# get_film_ratings
+# store_rating_and_film_in_hash
+# remove_blanks
+# present_in_lines
+
+
 
 
 current_date = Time.now.strftime("%Y%d%m")
