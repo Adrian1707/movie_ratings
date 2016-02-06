@@ -36,6 +36,7 @@ def collect_film_names
   @film_names_ids.each do |x|
     @films << x.values
   end
+  @films
 end
 
 def fetch_cinema(name)
@@ -60,17 +61,59 @@ def set_date(date)
   @date = date
 end
 
+def parse_film_ratings(url)
+  get_uri(url)
+  @film_details = JSON.parse(@response)
+end
+
+def fetch_film_rating(film)
+  film["imdbRating"]
+end
+
+def format_film_names
+  @films.map! do |film|
+    if film.join('').split(' - ').last.split(' ').join(' ').match(" ")
+        film.join('').split(' - ').last.split(' ').join(' ').gsub!(/\s/,'+')
+    else
+      film.join('').split(' - ').last.split(' ').join(' ')
+    end
+  end
+end
+
+
+def get_film_ratings
+  @ratings = []
+  @films.each do |film|
+     parse_film_ratings("http://www.omdbapi.com/?t=#{film}&y=&plot=short&r=json")
+     @ratings << fetch_film_rating(@film_details)
+  end
+  @ratings
+end
+
+def store_rating_and_film_in_hash
+  @film_and_ratings = []
+    @films.each_with_index do |film,i|
+      @film_and_ratings << {"#{@ratings[i]}" => "#{film.gsub!(/\+/,' ')}"}
+  end
+  @film_and_ratings.uniq!
+end
+
 set_date("20160207")
 parse_cinema_data("http://www2.cineworld.co.uk/api/quickbook/cinemas?key=n7Dhu:mz&date=#{@date}")
 store_names_in_hash
-fetch_cinema("London - Wembley")
+fetch_cinema("Luton")
 fetch_cinema_keys
 parse_film_data("http://www2.cineworld.co.uk/api/quickbook/films?key=n7Dhu:mz&cinema=#{@key}&date=#{@date}")
 store_films_in_hash
 collect_film_names
-print @films
+format_film_names
+get_film_ratings
+store_rating_and_film_in_hash
+print @film_and_ratings
+# print get_film_ratings
 
-
+# parse_film_ratings("http://www.omdbapi.com/?t=The+Revenant&y=&plot=short&r=json")
+# print fetch_film_rating(@film_details)
 
 
 current_date = Time.now.strftime("%Y%d%m")
