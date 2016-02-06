@@ -8,8 +8,8 @@ The code was thrown together in about 2 hours and looks revolting in its current
 
 ## To Run
 
-git clone https://github.com/Adrian1707/movie_ratings
 ```
+git clone https://github.com/Adrian1707/movie_ratings
 cd movie_ratings
 ruby movie_ratings.rb
 follow the instructions (make sure to input the location of the cinema exactly as it is below)
