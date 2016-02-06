@@ -4,8 +4,7 @@ showing in that cinema, as well as their IMDB ratings.
 
 This is a simple command line program that fetches data from the Cineworld API, to collect cinema names and movies showing, as well as the IMDB api to fetch the ratings for each of those movies.
 
-The code was thrown together in about 2 hours and looks revolting in its current state. There are no tests and best practices fell out the
-window as I wanted to see how fast I can get this working. This was purely for some Saturday afternoon hacky fun.
+The code was thrown together in about 2 hours and looks revolting in its current state. There are no tests and best practices fell out the window as I wanted to see how fast I could get this working. This was purely for some Saturday afternoon hacky fun.
 
 ## To Run
 
@@ -13,7 +12,7 @@ git clone https://github.com/Adrian1707/movie_ratings
 ```
 cd movie_ratings
 ruby movie_ratings.rb
-follow the instructions
+follow the instructions (make sure to input the location of the cinema exactly as it is below)
 ```
 
 ## List of Cineworld Cinemas
