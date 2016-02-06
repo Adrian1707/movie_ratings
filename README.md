@@ -10,6 +10,99 @@ window as I wanted to see how fast I can get this working. This was purely for s
 ## To Run
 
 git clone https://github.com/Adrian1707/movie_ratings
+```
 cd movie_ratings
 ruby movie_ratings.rb
-follow the instructions 
+follow the instructions
+```
+
+## List of Cineworld Cinemas
+
+Aberdeen - Queens Links
+Aberdeen - Union Square
+Aldershot
+Ashford
+Ashton-under-Lyne
+Bedford
+Birmingham - Broad Street
+Birmingham - NEC
+Boldon Tyne and Wear
+Bolton
+Bradford
+Braintree
+Brighton
+Bristol
+Broughton
+Burton upon Trent
+Bury St Edmunds
+Cardiff
+Castleford
+Cheltenham
+Chesterfield
+Chichester
+Crawley
+Didcot
+Didsbury
+Dundee
+Eastbourne
+Edinburgh
+Falkirk
+Glasgow - IMAX at GSC
+Glasgow - Parkhead
+Glasgow - Renfrew Street
+Glasgow - Silverburn
+Gloucester Quays
+Harlow
+Haverhill
+High Wycombe
+Hinckley
+Hull
+Huntingdon
+Ipswich
+Isle Of Wight
+Jersey
+Leigh
+Liverpool
+Llandudno
+London - Bexleyheath
+London - Chelsea
+London - Enfield
+London - Feltham
+London - Fulham Road
+London - Hammersmith
+London - Haymarket
+London - Ilford
+London - Staples Corner
+London - The O2, Greenwich
+London - Wandsworth
+London - Wembley
+London - West India Quay
+London - Wood Green
+Luton
+Middlesbrough
+Milton Keynes
+Newport - Friars Walk
+Newport - Spytty Park
+Northampton
+Nottingham
+Rochester
+Rugby
+Runcorn
+Sheffield
+Shrewsbury
+Solihull
+Southampton
+St Helens
+St Neots
+Stevenage
+Stockport
+Stoke-on-Trent
+Swindon - Regent Circus
+Swindon - Shaw Ridge
+Telford
+Wakefield
+Weymouth
+Whiteley
+Witney
+Wolverhampton
+Yeovil
